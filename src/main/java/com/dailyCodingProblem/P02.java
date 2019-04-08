@@ -1,5 +1,7 @@
 package com.dailyCodingProblem;
 
+import java.util.Arrays;
+
 //Good morning! Here's your coding interview problem for today.
 //
 //    This problem was asked by Uber.
@@ -46,6 +48,27 @@ public class P02 {
       prod[i] = left[i] * right[i];
     }
 
+    return prod;
+  }
+
+
+  public static int[] productOtherThanMyself_withoutDivision2(int[] numbers) {
+    int[] prod = new int[numbers.length];
+    prod[0] = 1;
+    prod[prod.length - 1] = 1;
+
+    for(int i = 1; i < numbers.length; i++) {
+      prod[i] = numbers[i - 1] * prod [i - 1];
+
+    }
+    System.out.println("Prod: " + Arrays.toString(prod));
+
+    int right = 1;
+    for(int j = numbers.length - 1; j >= 0; j--) {
+      prod[j] = prod[j] * right;
+      right = right * numbers[j];
+    }
+    System.out.println("Prod: " + Arrays.toString(prod));
     return prod;
   }
 }
