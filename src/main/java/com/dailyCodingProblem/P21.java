@@ -52,6 +52,6 @@ public final class P21 {
   }
 
   private static boolean isOverlap(Interval ia, Interval ib) {
-    return (ia.start < ib.end && ia.end > ib.start) || (ib.start < ia.end && ib.end > ia.start);
+    return !(ia.end < ib.start || ib.end < ia.start) ;
   }
 }
