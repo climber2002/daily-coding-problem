@@ -20,11 +20,7 @@ public class P274 {
         char[] chars = str.toCharArray();
         Stack<String> stack = new Stack<>();
         for(char c : chars) {
-            if(isOperator(c)) {
-                stack.push(Character.toString(c));
-            } else if(isDigit(c)) {
-                stack.push(Character.toString(c));
-            } else if(isLeftParenthese(c)) {
+            if(isOperator(c) || isDigit(c) || isLeftParenthese(c)) {
                 stack.push(Character.toString(c));
             } else if(isRightParenthese(c)) {
                 Stack<String> frame = getCurrentFrame(stack);
